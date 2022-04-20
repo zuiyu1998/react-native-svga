@@ -11,7 +11,7 @@ def safeExtGet(prop, fallback) {
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'maven-publish'
+apply plugin: 'maven'
 
 buildscript {
     // Buildscript is evaluated before everything else so we can't use getExtOrDefault
