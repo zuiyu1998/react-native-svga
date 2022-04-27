@@ -11,7 +11,8 @@ def safeExtGet(prop, fallback) {
 
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'maven'
+apply plugin: 'maven-publish'
+
 
 buildscript {
     // Buildscript is evaluated before everything else so we can't use getExtOrDefault
@@ -137,12 +138,4 @@ afterEvaluate { project ->
         archives androidJavadocJar
     }
 
-    task installArchives(type: Upload) {
-        configuration = configurations.archives
-        repositories.mavenDeployer {
-            // Deploy to react-native-event-bridge/maven, ready to publish to npm
-            repository url: "file://${projectDir}/../android/maven"
-            configureReactNativePom pom
-        }
-    }
 }
